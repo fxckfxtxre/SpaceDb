@@ -4,7 +4,8 @@ import json
 
 
 class Storage(object):
-    def __init__(self, path, rule) -> None:
+    def __init__(self, path, rule, encoding="base64") -> None:
+        self.encoding = encoding
         self.path = path.replace(".spacedb", "")
 
         if not os.path.exists(path + ".spacedb"):
@@ -112,12 +113,20 @@ class Storage(object):
         return None
 
     def __new(self, rule):
-        self.__write({
-            "rule": rule,
-            "data": [],
-            "encoding": "base64",
-            "db": "spacedb"
-        })
+        if self.encoding == "base64":
+            self.__write({
+                "rule": rule,
+                "data": [],
+                "encoding": "base64",
+                "db": "spacedb"
+            })
+        else:
+            self.__write({
+                "rule": rule,
+                "data": [],
+                "encoding": "utf-8",
+                "db": "spacedb"
+            })
 
     def __decode(self, data):
         data = data.encode("utf-8")
@@ -134,12 +143,23 @@ class Storage(object):
         return data
 
     def __read(self):
-        with open(self.path + ".spacedb") as db:
-            
-            return json.loads(self.__decode(db.read()))
+        if self.encoding == "base64":
+            with open(self.path + ".spacedb") as db:
+                
+                return json.loads(self.__decode(db.read()))
+        else:
+            with open(self.path + ".spacedb") as db:
+                
+                return json.load(db)
 
     def __write(self, obj):
-        with open(self.path + ".spacedb", "w", encoding="utf-8") as db:
-            db.write(self.__encode(json.dumps(obj)))
-            
-            return True
+        if self.encoding == "base64":
+            with open(self.path + ".spacedb", "w", encoding="utf-8") as db:
+                db.write(self.__encode(json.dumps(obj)))
+                
+                return True
+        else:
+            with open(self.path + ".spacedb", "w", encoding="utf-8") as db:
+                json.dump(obj, db)
+                
+                return True

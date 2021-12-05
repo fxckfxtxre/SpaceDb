@@ -1,3 +1,15 @@
+Metadata-Version: 2.1
+Name: spacedb
+Version: 1.1.0
+Summary: simple json database
+Home-page: https://github.com/fxckfxtxre/SpaceDb
+Author: cxldxice
+License: UNKNOWN
+Keywords: database,db,json
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
 <p align="center"><img src="https://i.ibb.co/Lnhyr3s/image.png" /></p>
 
 <p align="center">
@@ -103,4 +115,6 @@ $ python setup.py
   ```python
   db.data() #return all data from db
   ```
+
+
 

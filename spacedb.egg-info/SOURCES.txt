@@ -1,0 +1,8 @@
+LICENSE
+README.md
+setup.py
+spacedb/__init__.py
+spacedb.egg-info/PKG-INFO
+spacedb.egg-info/SOURCES.txt
+spacedb.egg-info/dependency_links.txt
+spacedb.egg-info/top_level.txt
