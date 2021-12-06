@@ -104,3 +104,5 @@ $ python setup.py
   db.data() #return all data from db
   ```
 
+## Examples
+- [Redirect app](https://github.com/fxckfxtxre/SpaceDb/tree/main/examples/redirect)
