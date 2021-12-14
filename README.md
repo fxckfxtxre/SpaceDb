@@ -23,5 +23,5 @@
 
 ---
 <p align="center">
-  <a href="https://github.com/fxckfxtxre/SpaceDb">Open web docs</a>
+  <a href="https://fxckfxtxre.github.io/SpaceDb">Open web docs</a>
 </p>
